@@ -1,5 +1,6 @@
 import { 
   addNewContact,
+  deleteContact,
   getContacts,
   getContactWithId,
   updateContact, 
@@ -8,9 +9,7 @@ import {
 const routes = (app) => {
   app.route('/contact')
     .get((req, res, next) => {
-      console.log(`Request from ${req.originalUrl}`)
-      console.log(`Request type: ${req.method}`)
-      next();
+    next();
     }, getContacts)
   
     .post(addNewContact);
@@ -20,8 +19,7 @@ const routes = (app) => {
 
     .put(updateContact)
     
-    .delete((req, res) =>  
-    res.send('DELETE Request Successful'));
+    .delete(deleteContact);
 
 }
 
